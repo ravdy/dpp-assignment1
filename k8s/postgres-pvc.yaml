@@ -4,8 +4,8 @@ metadata:
   name: postgres-pvc
   namespace: banking-app
 spec:
-  accessModes:
-    - ReadWriteOnce
+  accessModes: [ReadWriteOnce]
   resources:
     requests:
       storage: 1Gi
+

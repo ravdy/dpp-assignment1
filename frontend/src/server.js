@@ -20,20 +20,14 @@ app.get('/', async (req, res) => {
     const response = await axios.get(`${BACKEND_URL}/api/accounts`);
     res.render('index', { accounts: response.data, error: null });
   } catch (err) {
-    res.render('index', { accounts: [], error: 'Backend unavailable. Please ensure the backend service is running.' });
+    res.render('index', { accounts: [], error: 'Backend unavailable' });
   }
 });
-
 app.post('/accounts', async (req, res) => {
   try {
     await axios.post(`${BACKEND_URL}/api/accounts`, req.body);
     res.redirect('/');
-  } catch (err) {
-    res.redirect('/');
-  }
+  } catch (err) { res.redirect('/'); }
 });
 
-app.listen(PORT, () => {
-  console.log(`Frontend running on port ${PORT}`);
-  console.log(`Backend URL: ${BACKEND_URL}`);
-});
+app.listen(PORT, () => console.log(`Frontend running on port ${PORT}`));

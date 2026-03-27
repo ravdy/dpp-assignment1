@@ -4,8 +4,7 @@ metadata:
   name: frontend
   namespace: banking-app
 spec:
-  selector:
-    app: frontend
+  selector: { app: frontend }
   ports:
     - port: 3000
       targetPort: 3000

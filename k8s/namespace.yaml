@@ -2,6 +2,6 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: banking-app
-  labels:
-    app: banking
-    environment: dev
+  labels: { app: banking, environment: dev }
+
+

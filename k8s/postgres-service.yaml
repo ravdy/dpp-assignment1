@@ -4,8 +4,7 @@ metadata:
   name: postgres
   namespace: banking-app
 spec:
-  selector:
-    app: postgres
+  selector: { app: postgres }
   ports:
     - port: 5432
       targetPort: 5432

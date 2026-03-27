@@ -4,8 +4,7 @@ metadata:
   name: backend
   namespace: banking-app
 spec:
-  selector:
-    app: backend
+  selector: { app: backend }
   ports:
     - port: 8080
       targetPort: 8080

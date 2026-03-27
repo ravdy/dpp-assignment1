@@ -3,42 +3,32 @@ kind: Deployment
 metadata:
   name: frontend
   namespace: banking-app
-  labels:
-    app: frontend
 spec:
   replicas: 2
   selector:
-    matchLabels:
-      app: frontend
+    matchLabels: { app: frontend }
   template:
     metadata:
-      labels:
-        app: frontend
+      labels: { app: frontend }
     spec:
       containers:
         - name: frontend
-          image: YOUR_USERNAME/banking-frontend:v1
+          image: arsr319/banking-frontend:v1
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
           envFrom:
             - configMapRef:
                 name: frontend-config
           resources:
-            requests:
-              cpu: 100m
-              memory: 128Mi
-            limits:
-              cpu: 300m
-              memory: 256Mi
+            requests: { cpu: 100m, memory: 128Mi }
+            limits: { cpu: 300m, memory: 256Mi }
           readinessProbe:
-            httpGet:
-              path: /health
-              port: 3000
+            httpGet: { path: /health, port: 3000 }
             initialDelaySeconds: 10
             periodSeconds: 5
           livenessProbe:
-            httpGet:
-              path: /health
-              port: 3000
+            httpGet: { path: /health, port: 3000 }
             initialDelaySeconds: 15
             periodSeconds: 10
+
