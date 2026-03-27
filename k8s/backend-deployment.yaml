@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: arsr319/banking-backend:v1
+          image: arsr319/banking-app:v1
           ports:
             - containerPort: 8080
           envFrom:
